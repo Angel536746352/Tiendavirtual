@@ -1,0 +1,57 @@
+
+
+body {
+    font-family: Arial, sans-serif;
+    padding-top: 60px;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.menu {
+    background-color: #111111;
+    overflow: hidden;
+    position: fixed; /* Menú fijo en la parte superior */
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    justify-content: space-around;
+    padding: 0px 0; /* Agregamos más espacio vertical dentro del menú */
+}
+
+.menu ul {
+    margin: 0; /* Corregimos los márgenes */
+    padding: 0; /* Corregimos el padding */
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.menu ul li {
+    margin: 0 20px;
+}
+
+.menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.menu ul li a:hover {
+    background-color: #0a0a0a;
+    color: #ddd;
+}
+
+
+/* Alterna colores entre las secciones */
+.section:nth-child(even) {
+    background-color: #f9f9f9;
+}
+.section {
+    padding: 15px;
+    margin-top:150px; /* Aumentamos el espacio para compensar el menú más alto */
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+}

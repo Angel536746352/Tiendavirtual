@@ -1,0 +1,34 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+.content {
+    position: relative;
+    height: 200vh; /* Altura suficiente para permitir el desplazamiento vertical */
+}
+
+.image-container {
+    position: sticky;
+    top: 0; /* Pegado al borde superior del viewport */
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1; /* Mantiene la imagen detrás del contenido */
+    transform: translateY(0); /* Inicialmente la imagen está en su posición normal */
+    transition: transform 0.2s ease-out; /* Transición suave para el movimiento */
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.text-content {
+    position: relative;
+    padding: 20px;
+    background: #ffffff;
+}

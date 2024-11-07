@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial de Compras</title>
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+<body>
+    
+        <nav class="menu">
+            <ul>
+                <li><a href="inicio.html">Inicio</a></li>
+                <li><a href="imagentexto.html">Tienda</a></li>
+                <li><a href="ventas.html">Historial de Compras</a></li>
+                <li><a href="perfil.html">Perfil</a></li>
+            </ul>
+        </nav>
+        
+    <header>
+        <h1>Historial de Compras</h1>
+    </header>
+
+    <div class="container"></div>
+        <h1>Hacer su Pedido</h1>
+        <form id="order-form">
+            <label for="item-name">Nombre del Artículo:</label>
+            <input type="text" id="item-name" required>
+
+            <label for="item-price">Precio por Artículo (en $):</label>
+            <input type="number" id="item-price" required>
+
+            <label for="item-quantity">Cantidad de Artículos:</label>
+            <input type="number" id="item-quantity" min="1" required>
+
+            <p id="total-price">Total: $0</p>
+
+            <button type="button" id="order-button">Realizar Pedido</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

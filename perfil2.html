@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario</title>
+    <style>
+        /* Reseteo básico de estilos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #9b94a3 0%, #2575fc 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: white;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 450px;
+            width: 100%;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #121212;
+        }
+
+        .profile-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Imagen de perfil con espaciado y sombra */
+        .profile-section img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #6a11cb;
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Efecto hover en la imagen */
+        .profile-section img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Estilos para los inputs y textarea */
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+            transition: border 0.3s;
+        }
+
+        /* Foco en los campos */
+        input:focus, textarea:focus {
+            outline: none;
+            border: 1px solid #4b494c;
+        }
+
+        /* Estilo para botones */
+        button {
+            padding: 12px 10px;
+            background-color:#11111188;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            margin-top: 10px;
+            width: 50%;
+        }
+
+        /* Hover en los botones */
+        button:hover {
+            background-color: #2575fc;
+            transform: translateY(-2px);
+        }
+
+        /* Estilo para las etiquetas */
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #756982;
+        }
+
+        /* Estilo personalizado para input file */
+        .custom-file-input {
+            position: relative;
+            display: inline-block;
+            width: 50%;
+            padding: 10px 10px;
+            background-color: #11111188;
+            color: white;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            margin-bottom: 5px;
+        }
+
+        /* Quitar la opacidad al input de tipo file */
+        input[type="file"] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        /* Organización del formulario */
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Perfil de Usuario</h1>
+
+    <div class="profile-section">
+        <!-- Imagen de perfil -->
+        <img id="profile-image" src="c:\Users\angel\OneDrive\Imágenes\perfil.jpg" alt="Imagen de perfil">
+        
+        <!-- Botón personalizado para elegir archivo -->
+        <div class="custom-file-input">Elegir imagen de perfil
+            <input type="file" id="image-input" accept="image/*">
+        </div>
+
+        <button onclick="removeImage()">Quitar imagen</button>
+    </div>
+
+    <!-- Formulario de perfil -->
+    <div class="form-section">
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" placeholder="Escribe tu nombre">
+        </div>
+
+        <div class="form-group">
+            <label for="direccion">Dirección:</label>
+            <input type="text" id="direccion" placeholder="Escribe tu dirección">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" placeholder="Escribe tu correo electrónico">
+        </div>
+
+        <div class="form-group">
+            <label for="telefono">Número de Teléfono:</label>
+            <input type="tel" id="telefono" placeholder="Escribe tu número de teléfono">
+        </div>
+
+        <div class="form-group">
+            <label for="descripcion">Descripción:</label>
+            <textarea id="descripcion" rows="4" placeholder="Escribe una breve descripción sobre ti"></textarea>
+        </div>
+
+        <button onclick="guardarInformacion()">Guardar Información</button><br><br>
+        <a href="para/idea2.html"  class="custom-file-input">Atras</a>
+    </div>
+</div>
+
+<script>
+    // Cargar la información almacenada al cargar la página
+    document.addEventListener("DOMContentLoaded", function() {
+        cargarInformacion();
+    });
+
+    // Guardar la información en localStorage
+    function guardarInformacion() {
+        const nombre = document.getElementById('nombre').value;
+        const direccion = document.getElementById('direccion').value;
+        const email = document.getElementById('email').value;
+        const telefono = document.getElementById('telefono').value;
+        const descripcion = document.getElementById('descripcion').value;
+        const imagenSrc = document.getElementById('profile-image').src;
+
+        localStorage.setItem('nombre', nombre);
+        localStorage.setItem('direccion', direccion);
+        localStorage.setItem('email', email);
+        localStorage.setItem('telefono', telefono);
+        localStorage.setItem('descripcion', descripcion);
+        localStorage.setItem('imagen', imagenSrc);
+
+        alert("Información guardada correctamente.");
+    }
+
+    // Cargar la información desde localStorage
+    function cargarInformacion() {
+        const nombre = localStorage.getItem('nombre') || '';
+        const direccion = localStorage.getItem('direccion') || '';
+        const email = localStorage.getItem('email') || '';
+        const telefono = localStorage.getItem('telefono') || '';
+        const descripcion = localStorage.getItem('descripcion') || '';
+        const imagenSrc = localStorage.getItem('imagen') || 'https://via.placeholder.com/150';
+
+        document.getElementById('nombre').value = nombre;
+        document.getElementById('direccion').value = direccion;
+        document.getElementById('email').value = email;
+        document.getElementById('telefono').value = telefono;
+        document.getElementById('descripcion').value = descripcion;
+        document.getElementById('profile-image').src = imagenSrc;
+    }
+
+    // Subir y mostrar la imagen de perfil
+    document.getElementById('image-input').addEventListener('change', function(event) {
+        const reader = new FileReader();
+        reader.onload = function() {
+            document.getElementById('profile-image').src = reader.result;
+        }
+        reader.readAsDataURL(event.target.files[0]);
+    });
+
+    // Eliminar la imagen de perfil
+    function removeImage() {
+        document.getElementById('profile-image').src = 'https://via.placeholder.com/150';
+        localStorage.removeItem('imagen');
+    }
+</script>
+
+</body>
+</html>

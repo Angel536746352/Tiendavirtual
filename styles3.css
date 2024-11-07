@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    background-size: cover;
+    box-sizing: border-box;
+}
+h1 {
+    
+    margin-top: 30px; /* Ajusta este valor según el espacio que necesites */
+    font-size: 2.5em;
+    color: #333;
+}
+
+/* Ajustes para mantener 5 imágenes por fila */
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Mantén 5 columnas por fila */
+    gap: 20px; /* Espacio entre imágenes */
+    padding-top: 30px; /* Espacio para evitar que se superponga al menú */
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.item {
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.item img {
+    width: 100%;
+    height: 200px; /* Ajusta la altura fija */
+    object-fit: cover; /* Esto asegura que las imágenes se ajusten al contenedor sin deformarse */
+    border-radius: 5px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+#search-input {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+#search-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#search-btn:hover {
+    background-color: #0056b3;
+}
+
+.item img:hover {
+    transform: scale(1.1);
+}
+
+.boton {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: transform 0.3s;
+}
+
+.boton:hover {
+    transform: scale(1.1);
+    background-color: #0056b3;
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 600px) {
+    .galeria {
+        grid-template-columns: repeat(2, 1fr); /* En pantallas pequeñas, muestra 2 imágenes por fila */
+    }
+}

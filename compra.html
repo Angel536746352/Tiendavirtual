@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Imágenes1</title>
+    <link rel="stylesheet" href="styles3.css">
+    <link rel="stylesheet" href="animacion.css">
+
+<body>
+  
+   
+    <nav class="menu">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="file:///C:/Users/angel/OneDrive/Escritorio/pagina/compra.html">Tienda</a></li>
+            <li><a href="file:///C:/Users/angel/OneDrive/Escritorio/pagina/para/idea2.html">Hacer pedido</a></li>
+            <li><a href="perfil2.html">Perfil</a></li>
+        </ul>
+    </nav>
+</head>
+<body>
+    
+    
+   <div class="galeria">
+   </div>
+    <!-- Buscador -->
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Buscar...">
+        <button id="search-btn">Buscar</button>
+    </div>
+    <script>
+        document.getElementById('search-btn').addEventListener('click', function() {
+    const query = document.getElementById('search-input').value.toLowerCase();
+    const items = document.querySelectorAll('.galeria .item');
+    
+    items.forEach(item => {
+        const imgAlt = item.querySelector('img').getAttribute('alt').toLowerCase();
+        const description = item.querySelector('p').textContent.toLowerCase();
+
+        // Si el término de búsqueda se encuentra en el alt de la imagen o en la descripción
+        if (imgAlt.includes(query) || description.includes(query)) {
+            item.style.display = 'block';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+});
+
+    </script>
+   <center><h1>Seccion de Cameras</h1></center>
+    <div class="galeria">
+        
+        <div class="item">
+            <img src="c:\Users\angel\OneDrive\Escritorio\pagina\fotos para proyectos\cama1.jpg" alt="Imagen 1">
+            <p>Disponible</p>
+            <a href="c:\Users\angel\OneDrive\Escritorio\pagina\ppcompras1\ppcompra.html" class="boton">Ver mas</a>
+        </div>
+        <div class="item">
+            <img src="c:\Users\angel\OneDrive\Escritorio\pagina\fotos para proyectos\cama2.jpg" alt="Imagen 2">
+            <p>Disponible</p>
+            <a href="c:\Users\angel\OneDrive\Escritorio\pagina\ppcompras1\imagen2.html" class="boton">Ver mas</a>
+        </div>
+        <div class="item">
+            <img src="c:\Users\angel\OneDrive\Escritorio\pagina\fotos para proyectos\cama3.jpg" alt="Imagen 3">
+            <p>Disponible</p>
+            <a href="c:\Users\angel\OneDrive\Escritorio\pagina\ppcompras1\imagen3.html" class="boton">Ver mas</a>
+        </div>
+        <div class="item">
+            <img src="c:\Users\angel\OneDrive\Escritorio\pagina\fotos para proyectos\cama4.jpg" alt="Imagen 4">
+            <p>Disponible</p>
+            <a href="c:\Users\angel\OneDrive\Escritorio\pagina\ppcompras1\imagen4.html" class="boton">Ver mas</a>
+        </div>
+        <div class="item">
+            <img src="c:\Users\angel\OneDrive\Escritorio\pagina\fotos para proyectos\cama5.jpg" alt="Imagen 5">
+            <p>Disponible</p>
+            <a href="c:\Users\angel\OneDrive\Escritorio\pagina\ppcompras1\imagen5.html" class="boton">Ver mas</a>
+        </div>
+        <div class="item">
+            <img src="c:\Users\angel\OneDrive\Escritorio\pagina\fotos para proyectos\cama5.jpg" alt="Imagen 5">
+            <p>Disponible</p>
+            <a href="c:\Users\angel\OneDrive\Escritorio\pagina\ppcompras1\imagen6.html" class="boton">Ver mas</a>
+        <!-- Añade más imágenes aquí -->
+    </div>
+    </div>
+   <center><h1>Seccion de Cortinas</h1></center>
+   <div class="galeria">
+        
+    <div class="item">
+        <img src="c:\Users\angel\OneDrive\Escritorio\pagina\fotos para proyectos\cortina1.jpg" alt="Imagen 1">
+        <p>Descripción de la imagen 1</p>
+        <a href="para/idea2.html" class="boton">Pedir</a>
+    </div>
+    <div class="item">
+        <img src="c:\Users\angel\OneDrive\Escritorio\pagina\fotos para proyectos\cortina2.jpg" alt="Imagen 2">
+        <p>Descripción de la imagen 2</p>
+        <a href="para/idea2.html" class="boton">Pedir</a>
+    </div>
+    <div class="item">
+        <img src="c:\Users\angel\OneDrive\Escritorio\pagina\fotos para proyectos\cortina3.jpg" alt="Imagen 3">
+        <p>Descripción de la imagen 3</p>
+        <a href="para/idea2.html" class="boton">Pedir</a>
+    </div>
+    <div class="item">
+        <img src="c:\Users\angel\OneDrive\Escritorio\pagina\fotos para proyectos\cortina4.jpg" alt="Imagen 4">
+        <p>Descripción de la imagen 4</p>
+        <a href="para/idea2.html" class="boton">Pedir</a>
+    </div>
+    <div class="item">
+        <img src="c:\Users\angel\OneDrive\Escritorio\pagina\fotos para proyectos\cortina5.jpg" alt="Imagen 5">
+        <p>Descripción de la imagen 5</p>
+        <a href="para/idea2.html" class="boton">Pedir</a>
+    </div>
+    <div class="item">
+        <img src="c:\Users\angel\OneDrive\Escritorio\pagina\fotos para proyectos\cortina6.jpg" alt="Imagen 5">
+        <p>Descripción de la imagen 5</p>
+        <a href="para/idea2.html" class="boton">Pedir</a>
+    <!-- Añade más imágenes aquí -->
+</div>
+</div>
+    
+</body>
+
+</body>
+</html>

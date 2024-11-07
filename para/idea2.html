@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="animacion.css">
+    <title>Pedido de Artículos</title>
+   
+</head>
+<body>
+    
+    <nav class="menu">
+        <ul>
+            <li><a href="c:\Users\angel\OneDrive\Escritorio\pagina\index.html">Inicio</a></li>
+            <li><a href="file:///C:/Users/angel/OneDrive/Escritorio/pagina/compra.html">Tienda</a></li>
+            <li><a href="file:///C:/Users/angel/OneDrive/Escritorio/pagina/para/idea2.html">Hacer pedido</a></li>
+            <li><a href="c:\Users\angel\OneDrive\Escritorio\pagina\perfil2.html">Perfil</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Selecciona tu Artículo</h1>
+        <label for="nombre-cliente">Nombre del Cliente:</label>
+        <input type="text" id="nombre-cliente" placeholder="Escribe tu nombre">
+        <br><br>
+        <select id="articulo" onchange="actualizarDatos()">
+            <option value="" data-precio="0">Selecciona un artículo</option>
+            <option value="Artículo 1" data-precio="10">Camera- $10</option>
+            <option value="Artículo 2" data-precio="15">Almohadas- $15</option>
+            <option value="Artículo 3" data-precio="20">Artículo 3 - $20</option>
+        </select>
+
+        <input type="number" id="cantidad" value="1" min="1" onchange="actualizarDatos()">
+        
+        <div class="resultado">
+            <p>Nombre del Artículo: <span id="nombre-articulo"></span></p>
+            <p>Precio Unitario: $<span id="precio-unitario"></span></p>
+            <p>Cantidad: <span id="cantidad-articulos"></span></p>
+            <p>Total: $<span id="total"></span></p>
+        </div>
+        
+
+        <a id="hacer-pedido" href="https://wa.me/50497879281" class="boton" onclick="hacerPedido()">Hacer Pedido</a>
+    </div>
+
+    <script>
+        function actualizarDatos() {
+            const select = document.getElementById('articulo');
+            const cantidad = document.getElementById('cantidad').value;
+            const nombreArticulo = select.value;
+            const precioUnitario = parseFloat(select.options[select.selectedIndex].getAttribute('data-precio'));
+        
+            document.getElementById('nombre-articulo').textContent = nombreArticulo || 'N/A';
+            document.getElementById('precio-unitario').textContent = precioUnitario.toFixed(2);
+            document.getElementById('cantidad-articulos').textContent = cantidad;
+        
+            const total = precioUnitario * cantidad;
+            document.getElementById('total').textContent = total.toFixed(2);
+        }
+        
+        function hacerPedido() {
+            const nombreCliente = document.getElementById('nombre-cliente').value.trim();
+            const articulo = document.getElementById('nombre-articulo').textContent;
+            const cantidad = document.getElementById('cantidad').value;
+            const total = document.getElementById('total').textContent;
+
+             // Validar que el nombre del cliente no esté vacío
+    if (nombreCliente === "") {
+        alert("Por favor, ingresa tu nombre.");
+        return;
+    }
+        
+            // Crear el mensaje que se enviará por WhatsApp
+            const mensaje = `Hola, soy ${nombreCliente} y quiero pedir ${cantidad} de ${articulo}. Total: ${total}.`;
+           
+            const telefonoVendedor = '50497879281'; // Incluye código de país
+            const whatsappUrl = `https://wa.me/${telefonoVendedor}?text=${encodeURIComponent(mensaje)}`;
+        
+            // Cambiar el href del enlace para abrir el chat de WhatsApp
+            document.getElementById('hacer-pedido').setAttribute('href', whatsappUrl);
+
+           
+        }
+        </script>
+</body>
+</html>

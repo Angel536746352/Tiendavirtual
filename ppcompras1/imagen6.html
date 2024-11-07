@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Producto</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body, html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            height: 100%;
+            width: 100%;
+        }
+        .image-container {
+            flex: 1;
+            background-color: #e0f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .image-container img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .info-container {
+            flex: 1;
+            padding: 40px;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        p {
+            margin: 20px 0;
+            text-align: center;
+            font-size: 16px;
+            color: #555;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+        button {
+            padding: 10px 20px;
+            border: 1px solid #000; /* Bordes de los botones */
+            border-radius: 5px; /* Bordes redondeados */
+            cursor: pointer;
+            width: 48%;
+            background-color: transparent; /* Fondo transparente */
+            color: black; /* Texto en negro */
+            font-size: 16px; /* Tamaño de fuente */
+        }
+        button:hover {
+            background-color: #1a030342; /* Color de fondo al pasar el mouse */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-container">
+            <img src="c:\Users\angel\OneDrive\Escritorio\pagina\fotos para proyectos\cama5.jpg" alt="Nombre del producto" id="productImage">
+        </div>
+        <div class="info-container">
+            <h1>Nombre del producto</h1>
+            <p>Descripción del producto</p>
+            <div class="buttons">
+                <button class="pedir" onclick="goToOrderForm()">Pedir</button>
+                <button class="atras" onclick="goBack()">Atrás</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function goToOrderForm() {
+            alert("Redirigiendo al formulario de pedido...");
+            window.location.href = 'file:///C:/Users/angel/OneDrive/Escritorio/pagina/para/idea2.html';
+        }
+
+        function goBack() {
+            alert("Volviendo al formulario anterior...");
+            window.location.href = 'file:///C:/Users/angel/OneDrive/Escritorio/pagina/compra.html';
+        }
+    </script>
+</body>
+</html>
